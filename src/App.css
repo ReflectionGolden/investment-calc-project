@@ -15,33 +15,6 @@ h2 {
   font-weight: 700;
 }
 
-#user-input {
-  padding: 1rem;
-  max-width: 30rem;
-  margin: 2rem auto;
-  border-radius: 4px;
-  background-color: #363636;
-}
-
-.input-group {
-  display: flex;
-  justify-content: space-between;
-  gap: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.input-group label {
-  font-weight: bold;
-}
-
-.input-group input {
-  width: 10rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -63,12 +36,12 @@ tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-.center{
+.center {
   display: block;
   margin:10px auto;
 }
 
-button{
+button {
   height: 30px;
   width: 200px;
   background-color: #363636;
@@ -77,11 +50,11 @@ button{
   font-weight: bold;
 }
 
-button:hover{
+button:hover {
   background-color: #969696;
   color:#fff;
 }
 
-button:active{
+button:active {
   transform: translate(3px);
 }

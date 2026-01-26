@@ -8,9 +8,22 @@ const UserInput = () => {
     expectedReturn: 5,
     duration: 10
   });
+  const defaultInput = {
+    initialInvestment: 4000,
+    annualInvestment: 1000,
+    expectedReturn: 5,
+    duration: 10
+  };
+
   const handleChange = (inputIdentifier, newValue) => {
     setUserInput({...userInput, [inputIdentifier]: newValue});
   }
+
+  function resetValue(e) {
+    e.preventDefault();
+    setUserInput(defaultInput);
+  }
+
   return(
     <>
     <section className='p-4 max-w-200 my-8 mx-auto rounded-sm bg-gray-900'>
@@ -20,6 +33,9 @@ const UserInput = () => {
           <InvestInput id="annualInvestment" label="Annual Investment (£)" value={userInput.annualInvestment} handleChange={handleChange}/>
           <InvestInput id="expectedReturn" label="Expected Return (%)" value={userInput.expectedReturn} handleChange={handleChange}/>
           <InvestInput id="duration" label="Duration (Years)" value={userInput.duration} handleChange={handleChange}/>
+        </div>
+        <div className='flex justify-between gap-6 mb-2'>
+          <button onClick={e => resetValue(e)}>Reset</button>
         </div>
       </form>
     </section>
@@ -38,6 +54,7 @@ function InvestInput(props) {
           id={props.id}
           value={props.value}
           onChange={(e) => props.handleChange(props.id, e.target.value)}
+          min={1}
         />
       </p>
     </>

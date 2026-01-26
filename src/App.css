@@ -42,19 +42,22 @@ tr:nth-child(even) {
 }
 
 button {
-  height: 30px;
-  width: 200px;
-  background-color: #363636;
+  height: 2rem;
+  width: 12rem;
+  background-color: #404040;
   border-style: none;
   font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
+  box-shadow: 1px 2px 5px black;
+  transition: 0.2s;
 }
 
 button:hover {
-  background-color: #969696;
+  background-color: #A3A3A3;
   color:#fff;
 }
 
 button:active {
-  transform: translate(3px);
+  transform: translate(1px, 2px);
+  box-shadow: none;
 }

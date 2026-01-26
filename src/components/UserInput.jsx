@@ -1,38 +1,17 @@
 import {useState} from 'react'
 import '../App.css'
 
-const UserInput = () => {
-  const [userInput, setUserInput] = useState({
-    initialInvestment: 4000,
-    annualInvestment: 1000,
-    expectedReturn: 5,
-    duration: 10
-  });
-  const defaultInput = {
-    initialInvestment: 4000,
-    annualInvestment: 1000,
-    expectedReturn: 5,
-    duration: 10
-  };
-
-  const handleChange = (inputIdentifier, newValue) => {
-    setUserInput({...userInput, [inputIdentifier]: newValue});
-  }
-
-  function resetValue(e) {
-    e.preventDefault();
-    setUserInput(defaultInput);
-  }
+const UserInput = ({userInput, handleInputChange, resetValue}) => {
 
   return(
     <>
     <section className='p-4 max-w-200 my-8 mx-auto rounded-sm bg-gray-900'>
       <form>
         <div className='flex justify-between gap-6 mb-2'>
-          <InvestInput id="initialInvestment" label="Initial Investment (£)" value={userInput.initialInvestment} handleChange={handleChange}/>
-          <InvestInput id="annualInvestment" label="Annual Investment (£)" value={userInput.annualInvestment} handleChange={handleChange}/>
-          <InvestInput id="expectedReturn" label="Expected Return (%)" value={userInput.expectedReturn} handleChange={handleChange}/>
-          <InvestInput id="duration" label="Duration (Years)" value={userInput.duration} handleChange={handleChange}/>
+          <InvestInput id="initialInvestment" label="Initial Investment (£)" value={userInput.initialInvestment} handleInputChange={handleInputChange}/>
+          <InvestInput id="annualInvestment" label="Annual Investment (£)" value={userInput.annualInvestment} handleInputChange={handleInputChange}/>
+          <InvestInput id="expectedReturn" label="Expected Return (%)" value={userInput.expectedReturn} handleInputChange={handleInputChange}/>
+          <InvestInput id="duration" label="Duration (Years)" value={userInput.duration} handleInputChange={handleInputChange}/>
         </div>
         <div className='flex justify-between gap-6 mb-2'>
           <button onClick={e => resetValue(e)}>Reset</button>
@@ -53,7 +32,7 @@ function InvestInput(props) {
           type="number"
           id={props.id}
           value={props.value}
-          onChange={(e) => props.handleChange(props.id, e.target.value)}
+          onChange={(e) => props.handleInputChange(props.id, e.target.value)}
           min={1}
         />
       </p>

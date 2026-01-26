@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import Header from './components/Header.jsx'
 import UserInput from './components/UserInput.jsx'
+import Output from './components/Output.jsx'
 import './App.css'
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
   };
   
   const handleInputChange = (inputIdentifier, newValue) => {
-    setUserInput({...userInput, [inputIdentifier]: newValue});
+    setUserInput({...userInput, [inputIdentifier]: +newValue});
   }
   function resetValue(e) {
     e.preventDefault();
@@ -29,6 +30,7 @@ function App() {
     <>
       <Header />
       <UserInput defaultValue={defaultValue} userInput={userInput} handleInputChange={handleInputChange} resetValue={resetValue} />
+      <Output userInput={userInput}/>
       {/* additional components goes here */}
     </>
   )

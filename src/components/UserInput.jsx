@@ -7,10 +7,10 @@ const UserInput = ({userInput, handleInputChange, resetValue}) => {
     <section className='p-4 max-w-200 my-8 mx-auto rounded-sm bg-gray-900'>
       <form>
         <div className='flex justify-between gap-6 mb-2'>
-          <InvestInput id="initialInvestment" label="Initial Investment (£)" value={userInput.initialInvestment} handleInputChange={handleInputChange}/>
-          <InvestInput id="annualInvestment" label="Annual Investment (£)" value={userInput.annualInvestment} handleInputChange={handleInputChange}/>
-          <InvestInput id="expectedReturn" label="Expected Return (%)" value={userInput.expectedReturn} handleInputChange={handleInputChange}/>
-          <InvestInput id="duration" label="Duration (Years)" value={userInput.duration} handleInputChange={handleInputChange}/>
+          <InvestInput id="initialInvestment" label="Initial Investment (£)" value={userInput.initialInvestment} handleInputChange={handleInputChange} min={1}/>
+          <InvestInput id="annualInvestment" label="Annual Investment (£)" value={userInput.annualInvestment} handleInputChange={handleInputChange} min={0}/>
+          <InvestInput id="expectedReturn" label="Expected Return (%)" value={userInput.expectedReturn} handleInputChange={handleInputChange} min={1}/>
+          <InvestInput id="duration" label="Duration (Years)" value={userInput.duration} handleInputChange={handleInputChange} min={1}/>
         </div>
         <div className='flex justify-between gap-6 mb-2'>
           <button onClick={e => resetValue(e)}>Reset</button>
@@ -30,7 +30,7 @@ function InvestInput(props) {
         id={props.id}
         value={props.value}
         onChange={(e) => props.handleInputChange(props.id, e.target.value)}
-        min={1}
+        min={props.min}
       />
     </p>
   )

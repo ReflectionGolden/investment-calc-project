@@ -16,7 +16,8 @@ h2 {
 }
 
 table {
-  width: 100%;
+  width: 75%;
+  margin: 0 auto;
   border-collapse: collapse;
   margin-top: 2rem;
 }
@@ -34,11 +35,6 @@ th {
 
 tr:nth-child(even) {
   background-color: #111827; /* gray-900 */
-}
-
-.center {
-  display: block;
-  margin:10px auto;
 }
 
 button {

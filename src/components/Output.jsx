@@ -1,5 +1,6 @@
 import React from 'react'
 import { calculateInvestmentResults } from '../util/investments';
+import InvestChart from './Chart.jsx';
 
 const Output = ({userInput}) => {
     const results = calculateInvestmentResults(userInput);
@@ -54,35 +55,38 @@ const Output = ({userInput}) => {
         }
         else {
             return(
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Year</th>
-                            <th>Investment Value</th>
-                            <th>Interest (Year)</th>
-                            <th>Total Interest</th>
-                            <th>Invested Capital</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {results.map((yearData, index) => (
-                            <tr key={index}>
-                                <td>{yearData.year}</td>
+                <>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Investment Value</th>
+                                <th>Interest (Year)</th>
+                                <th>Total Interest</th>
+                                <th>Invested Capital</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {results.map((yearData, index) => (
+                                <tr key={index}>
+                                    <td>{yearData.year}</td>
                                     <td>{yearData.investmentValue}</td>
                                     <td>{yearData.interest}</td>
                                     <td>{yearData.totalInterest}</td>
                                     <td>{yearData.investedCapital}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    <InvestChart results={results}/>
+                </>
             )
         }
     }
 
     return(
         <>
-            <span className='text-center'><h1>Investment Results:</h1></span>
+            <span className='text-center'><h1 className='mt-5'>Investment Results:</h1></span>
             {display()}
         </>
     )

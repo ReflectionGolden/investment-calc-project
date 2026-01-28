@@ -46,7 +46,7 @@ const Output = ({userInput}) => {
                     <h2>Errors:</h2>
                     <ul className='ml-4 list-disc'>
                         {errors.map((error, index) => (
-                            <li  key={index}>{error}</li>
+                            <li className='text-red-600' key={index}>{error}</li>
                         ))}
                     </ul>
                 </section>
@@ -68,10 +68,10 @@ const Output = ({userInput}) => {
                         {results.map((yearData, index) => (
                             <tr key={index}>
                                 <td>{yearData.year}</td>
-                                <td>{yearData.investmentValue.toFixed(2)}</td>
-                                <td>{yearData.interest.toFixed(2)}</td>
-                                <td>{yearData.totalInterest.toFixed(2)}</td>
-                                <td>{yearData.investedCapital.toFixed(2)}</td>
+                                    <td>{yearData.investmentValue}</td>
+                                    <td>{yearData.interest}</td>
+                                    <td>{yearData.totalInterest}</td>
+                                    <td>{yearData.investedCapital}</td>
                             </tr>
                         ))}
                     </tbody>

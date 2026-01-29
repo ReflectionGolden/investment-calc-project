@@ -70,10 +70,10 @@ const Output = ({userInput}) => {
                             {results.map((yearData, index) => (
                                 <tr key={index}>
                                     <td>{yearData.year}</td>
-                                    <td>{yearData.investmentValue}</td>
-                                    <td>{yearData.interest}</td>
-                                    <td>{yearData.totalInterest}</td>
-                                    <td>{yearData.investedCapital}</td>
+                                    <td>£{yearData.investmentValue}</td>
+                                    <td>£{yearData.interest}</td>
+                                    <td>£{yearData.totalInterest}</td>
+                                    <td>£{yearData.investedCapital}</td>
                                 </tr>
                             ))}
                         </tbody>
